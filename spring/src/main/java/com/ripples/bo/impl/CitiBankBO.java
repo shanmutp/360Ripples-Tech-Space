@@ -23,7 +23,7 @@ public class CitiBankBO implements IBank {
 		boolean response;
 		String password = userDao.getUserDetails(bean);
 		User user = userDao.getUserDetails(bean.getUserName());
-		System.out.println("Validate user CITI BANK password =" + password);
+		System.out.println("Validate user CITI BANK credentials =" + password);
 		if (password.equals(bean.getPassword())) {
 			response = true;
 		} else {
