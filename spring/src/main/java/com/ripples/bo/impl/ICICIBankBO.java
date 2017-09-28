@@ -13,7 +13,7 @@ public class ICICIBankBO implements IBank {
 
 	public void openAccount() {
 		// TODO Auto-generated method stub
-		System.out.println("Open account ICICI");
+		System.out.println("Open account ICICI Bank private limited");
 	}
 
 	public void closeAccount() {
