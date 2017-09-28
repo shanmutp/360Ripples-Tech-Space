@@ -7,7 +7,7 @@ public class ICICIBankBO implements IBank {
 
 	public boolean validateUser(UserBean bean) {
 		// TODO Auto-generated method stub
-		System.out.println("Validate user ICICI");
+		System.out.println("Validate user ICICI BANK PRIVATE LIMITED");
 		return false;
 	}
 
