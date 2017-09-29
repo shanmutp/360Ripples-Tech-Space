@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-init-method="i">
+	<context:annotation-config />
+
+	<bean id="studentid" name="student" class="com.ripples.spring.bean.Student"
+		lazy-init="default" init-method="init">
+		<property name="firstName" value="Shanmu"></property>
+		<property name="lastName" value="Palaniswami"></property>
+		<property name="marks">
+			<bean id="marks" class="com.ripples.spring.bean.Marks">
+				<property name="mathsMarks" value="100"></property>
+				<property name="scienceMarks" value="50"></property>
+
+			</bean>
+		</property>
+	</bean>
+	<bean id="mark1" class="com.ripples.spring.bean.Marks">
+		<property name="mathsMarks" value="23"></property>
+		<property name="scienceMarks" value="45"></property>
+
+	</bean>
+
+	<bean id="studentid1" name="student1" class="com.ripples.spring.bean.Student"
+		lazy-init="default" init-method="init">
+		<property name="firstName" value="Jack"></property>
+		<property name="lastName" value="Nicholas"></property>
+		<constructor-arg ref="mark1"></constructor-arg>
+	</bean>
+	<bean id="college1" name="college1" class="com.ripples.spring.bean.College"
+		autowire="byName">
+		<constructor-arg value="Anna University"></constructor-arg>
+	</bean>
+	<bean id="college2" name="college2" class="com.ripples.spring.bean.College"
+		autowire="byType">
+		<constructor-arg value="MIT University"></constructor-arg>
+	</bean>
+	<bean id="branch" class="com.ripples.spring.bean.Branch">
+		<property name="branchName" value="EEE" />
+	</bean>
+	<bean id="college3" name="college3" class="com.ripples.spring.bean.College">
+		<constructor-arg value="VIT"></constructor-arg>
+	</bean>
+	<bean id="bus1" class="com.ripples.spring.bean.Bus"/>
+
+</beans>
