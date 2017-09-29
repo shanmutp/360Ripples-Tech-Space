@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.util.EntityUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -48,6 +54,17 @@ public class AddUserServlet extends HttpServlet {
 		System.out.println("Opening account for a user");
 		b.addUSer(bean);
 		response.getWriter().append("USer Added successfully");
+		// invoking rest api
+
+		// Servlet invoking a rest API using get method....
+		//The JSON object is then displayed
+		final HttpClient httpClient = new DefaultHttpClient();
+		HttpConnectionParams.setConnectionTimeout(httpClient.getParams(), 10000);
+		HttpGet httpget = new HttpGet("http://localhost:9000/searchUsers?searchUsersMap=Ma" );
+		HttpResponse restResponse = httpClient.execute(httpget);
+		String json = EntityUtils.toString(restResponse.getEntity());
+		response.getWriter().append(json);
+		
 	}
 
 	public void init(ServletConfig config) throws ServletException {
