@@ -22,5 +22,5 @@ public class PlacementSystemPojo
 			System.out.println(vo.getCandidateName()+" got placed");
 		else
 			System.out.println(vo.getCandidateName()+" not placed");
-	}
+	} 
 }
